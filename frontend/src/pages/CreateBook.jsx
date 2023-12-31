@@ -25,7 +25,7 @@ const CreateBooks = () => {
       .then(() => {
         setLoading(false);
         enqueueSnackbar("Book Created successfully", { variant: "success" });
-        navigate("/");
+        navigate("/books");
       })
       .catch((error) => {
         setLoading(false);
@@ -36,44 +36,53 @@ const CreateBooks = () => {
   };
 
   return (
-    <div className="p-4">
-      <BackButton />
-      <h1 className="text-3xl my-4">Create Book</h1>
-      {loading ? <Spinner /> : ""}
-      <div className="flex flex-col border-2 border-sky-400 rounded-xl w-[600px] p-4 mx-auto">
-        <div className="my-4">
-          <label className="text-xl mr-4 text-gray-500">Title</label>
-          <input
-            type="text"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            className="border-2 border-gray-500 px-4 py-2 w-full"
-          />
+    <div className="bg-side bg-no-repeat bg-cover bg-center bg-fixed min-h-screen ">
+      <div className="p-4 backdrop-blur-[0.4rem] text-white">
+        <BackButton />
+        <h1 className="text-[5rem] font-semibold ml-[28rem] my-1">Edit Book</h1>
+        {loading ? <Spinner /> : ""}
+        <div className="flex flex-col border-2 border-sky-400 rounded-xl w-[30rem] p-4 mx-auto bg-black">
+          <div className="my-1">
+            <label className="text-xl mr-4 text-white">Title</label>
+            <input
+              type="text"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              className=" px-4 py-2 w-full rounded-3xl text-black"
+            />
+          </div>
+          <div className="my-1">
+            <label className="text-xl mr-4 text-white">Author</label>
+            <input
+              type="text"
+              value={author}
+              onChange={(e) => setAuthor(e.target.value)}
+              className="px-4 py-2  w-full rounded-3xl  text-black"
+            />
+          </div>
+          <div className="my-1">
+            <label className="text-xl mr-4 text-white">Publish Year</label>
+            <input
+              type="number"
+              value={publishYear}
+              onChange={(e) => setPublishYear(e.target.value)}
+              className="px-4 py-2  w-full rounded-3xl text-black "
+            />
+          </div>
+          <button
+            className="p-2 bg-sky-600 m-8 rounded-3xl hover:scale-110"
+            onClick={handleSaveBook}
+          >
+            Save
+          </button>
         </div>
-        <div className="my-4">
-          <label className="text-xl mr-4 text-gray-500">Author</label>
-          <input
-            type="text"
-            value={author}
-            onChange={(e) => setAuthor(e.target.value)}
-            className="border-2 border-gray-500 px-4 py-2  w-full "
-          />
-        </div>
-        <div className="my-4">
-          <label className="text-xl mr-4 text-gray-500">Publish Year</label>
-          <input
-            type="number"
-            value={publishYear}
-            onChange={(e) => setPublishYear(e.target.value)}
-            className="border-2 border-gray-500 px-4 py-2  w-full "
-          />
-        </div>
-        <button className="p-2 bg-sky-300 m-8" onClick={handleSaveBook}>
-          Save
-        </button>
       </div>
     </div>
   );
 };
 
 export default CreateBooks;
+
+
+
+
