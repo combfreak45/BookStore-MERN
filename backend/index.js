@@ -25,8 +25,8 @@ mongoose
   .connect(MongoDBURL)
   .then(() => {
     console.log("APP IS CONNECTED");
-    app.listen(PORT, (req, res) => {
-      console.log(`I m listening on port ${PORT}`);
+    app.listen(PORT || 5000, (req, res) => {
+      console.log(`I m listening`);
     });
   })
   .catch((err) => {
