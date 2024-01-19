@@ -17,7 +17,7 @@ const EditBook = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`https://book-store-backend-5t9yhlumh-arjits-projects-4f88e43c.vercel.app/books/${id}`)
+      .get(`https://book-store-backend-nine.vercel.app/books/${id}`)
       .then((response) => {
         console.log(1)
         setAuthor(response.data.author);
@@ -42,7 +42,7 @@ const EditBook = () => {
     };
     setLoading(true);
     axios
-      .put(`https://book-store-backend-5t9yhlumh-arjits-projects-4f88e43c.vercel.app/books/${id}`, data)
+      .put(`https://book-store-backend-nine.vercel.app/books/${id}`, data)
       .then(() => {
         setLoading(false);
         enqueueSnackbar("Book Edited successfully", { variant: "success" });
