@@ -11,8 +11,8 @@ app.use(express.json())
 
 app.use(cors({
     origin: 'https://book-store-frontend-pied.vercel.app/books',
-   methods: ['GET','POST','PUT','DELETE'],
-    allowedHeaders: ['Content-Type']
+    methods: ['GET','POST','PUT','DELETE'],
+    allowedHeaders: ['Content-Type'],
 }))
 
 app.get("/", (req, res) => {
@@ -25,7 +25,7 @@ mongoose
   .connect(MongoDBURL)
   .then(() => {
     console.log("APP IS CONNECTED");
-    app.listen(PORT || 5000, (req, res) => {
+    app.listen(PORT, (req, res) => {
       console.log(`I m listening`);
     });
   })
