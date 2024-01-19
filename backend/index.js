@@ -10,7 +10,7 @@ const app = express();
 app.use(express.json())
 
 app.use(cors({
-    origin: 'https://book-store-frontend-pied.vercel.app/',
+    origin: 'https://book-store-frontend-pied.vercel.app',
     methods: ['GET','POST','PUT','DELETE'],
     allowedHeaders: ['Content-Type']
 }))
