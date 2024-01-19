@@ -11,8 +11,8 @@ app.use(express.json())
 
 app.use(cors({
     origin: 'https://book-store-frontend-pied.vercel.app/books',
-    credentials: true,
-    optionsSuccessStatus: 200,
+   methods: ['GET','POST','PUT','DELETE'],
+    allowedHeaders: ['Content-Type']
 }))
 
 app.get("/", (req, res) => {
